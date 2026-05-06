@@ -51,11 +51,11 @@ agent harness (OpenHands, OpenCode, Goose, etc.).
 
 - **Docker Desktop** — must be running
 - **uv** — Python package manager ([install](https://docs.astral.sh/uv/getting-started/installation/))
-- **Hugging Face access** — `uv run hf auth login` or `export HF_TOKEN="hf_..."`
-- **Dataset repo ID** — `export BTB_HF_REPO_ID="<anonymized-org>/<anonymized-dataset>"`
-  (the dataset has been uploaded to an anonymized Hugging Face repository for
-  review; the exact ID is provided in the supplementary material accompanying
-  the submission)
+- **Hugging Face access** — `uv run hf auth login` or `export HF_TOKEN="hf_..."`.
+  The dataset is hosted on Hugging Face at
+  <https://huggingface.co/datasets/research-artifact-4729/bankertoolbench>.
+  The adapter downloads it automatically; set `BTB_HF_REPO_ID` to point at a
+  different mirror if you have one.
 - **API keys** — for your agent's model provider and the verifier (`GEMINI_API_KEY`, `OPENAI_API_KEY`, etc.)
 - **~20-30 GB disk space** — shared tool data is ~2 GB compressed, ~10 GB extracted
 
@@ -192,10 +192,11 @@ CLI flags — see [adapters/btb/README.md](adapters/btb/README.md).
 
 ## Dataset
 
-The benchmark data is hosted on Hugging Face under an anonymized repository for
-the duration of the review period. Set the dataset repo ID via the
-`BTB_HF_REPO_ID` environment variable; the adapter then downloads it
-automatically into `btb-data/`.
+The benchmark data is hosted on Hugging Face at
+<https://huggingface.co/datasets/research-artifact-4729/bankertoolbench> (an
+anonymized repository for the duration of the review period). The adapter
+downloads it automatically into `btb-data/`. To point at a mirror, set the
+`BTB_HF_REPO_ID` environment variable.
 
 ```text
 ├── tasks.jsonl                  # Task metadata (100 tasks)

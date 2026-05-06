@@ -34,13 +34,11 @@ DEFAULT_GRADER_BATCH_TIMEOUT_BUFFER_SEC = 60
 # HuggingFace dataset
 # ---------------------------------------------------------------------------
 
-# Repo ID is read from the BTB_HF_REPO_ID environment variable. The default
-# placeholder below intentionally does not resolve to a real dataset; for
-# anonymous review the dataset is hosted under an anonymized HF repository
-# whose ID is provided in the supplementary material accompanying the
-# submission.
+# For the duration of NeurIPS double-blind review the dataset is hosted under
+# an anonymized HF account; the BTB_HF_REPO_ID environment variable can
+# override this default if you mirror the dataset elsewhere.
 HF_REPO_ID_ENV_VAR = "BTB_HF_REPO_ID"
-HF_DEFAULT_REPO_ID = "anonymous/bankertoolbench"
+HF_DEFAULT_REPO_ID = "research-artifact-4729/bankertoolbench"
 HF_REPO_ID = os.environ.get(HF_REPO_ID_ENV_VAR, HF_DEFAULT_REPO_ID)
 HF_REPO_TYPE = "dataset"
 HF_REVISION_ENV_VAR = "BTB_HF_REVISION"
